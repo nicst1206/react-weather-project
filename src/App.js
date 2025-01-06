@@ -1,5 +1,6 @@
 import "./App.css";
 import Weather from "./Weather.js";
+import Form from "./Form.js";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
         <header className="App-header">
           <h1>Weather App</h1>
         </header>
-        <Weather />
+        <Form />
+        <Weather city="Frankfurt" />
         <footer>
           This webiste was coded by Nicole Stoewer-Rust and is{" "}
           <a
