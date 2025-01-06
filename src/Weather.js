@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState(props.city);
 
   function displayData(response) {
     setWeatherData({
@@ -20,37 +21,42 @@ export default function Weather(props) {
     });
   }
 
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
   function search() {
     let apiKey = "obbt00a19b0447e3fbfabf89040f3c88";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayData);
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div>
-          <h1>{props.city}</h1>
-          <p>
-            <span className="currentDate">
-              <FormattedDate date={weatherData.date} />
-            </span>
-            , moderate rain
-            <br />
-            Humidity: <span className="humidity">{weatherData.humidity}</span>,
-            Wind: <span className="wind">{weatherData.wind}km/h</span>
-          </p>
-        </div>
-        <div className="temperature">
-          <span className="currentEmoji">
-            <img href={weatherData.emoji} alt={weatherData.alternate} />
-          </span>
-          <span className="currentTemperature">
-            {" "}
-            {Math.round(weatherData.temperature)}
-          </span>
-          <span className="celsiusDisplay">°C</span>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                required
+                className="searchInput"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div className="col-3">
+              <input type="submit" value="Search" className="searchButton" />
+            </div>
+          </div>
+        </form>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
