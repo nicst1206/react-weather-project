@@ -11,7 +11,9 @@ export default function WeatherInfo(props) {
           <span className="currentDate">
             <FormattedDate date={props.data.date} />
           </span>
-          , moderate rain
+          <span className="currentDescription text-capitalize">
+            {props.data.description}
+          </span>
           <br />
           Humidity: <span className="humidity">{props.data.humidity}</span>,
           Wind: <span className="wind">{props.data.wind}km/h</span>
@@ -19,7 +21,7 @@ export default function WeatherInfo(props) {
       </div>
       <div className="temperature">
         <span className="currentEmoji">
-          <img href={props.data.emoji} alt={props.data.alternate} />
+          <img src={props.data.emoji} alt={props.data.alternate} />
         </span>
         <span className="currentTemperature">
           {" "}
