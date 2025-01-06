@@ -3,7 +3,21 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Weather App</header>
+      <div className="container">
+        <header className="App-header">
+          <h1>Weather App</h1>
+        </header>
+        <footer>
+          This webiste was coded by Nicole Stoewer-Rust and is{" "}
+          <a
+            href="https://github.com/nicst1206/react-weather-project"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced on GitHub
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }
