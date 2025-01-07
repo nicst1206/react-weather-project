@@ -18,3 +18,15 @@
   line-height: 1;
   border-radius: 5px;
 }
+
+.Weather form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.Weather {
+  border: 1px solid #885df1;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  border-radius: 4px;
+}

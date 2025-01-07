@@ -1,9 +1,16 @@
 .App {
   max-width: 800px;
   margin: 0 auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .App footer {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 20px;
+  padding-left: 40px;
+}
+
+.App footer a {
+  color: #885df1;
 }
