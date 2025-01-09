@@ -13,6 +13,7 @@ export default function WeatherInfo(props) {
             <span className="currentDate">
               <FormattedDate date={props.data.date} />
             </span>
+            <br />
             <span className="currentDescription text-capitalize">
               {props.data.description}
             </span>
