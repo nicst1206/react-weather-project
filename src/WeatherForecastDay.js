@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function WeatherForecastDay(props) {
-  console.log(props);
-  console.log(props.forecast.city);
   function day() {
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let date = new Date(props.forecast.daily[0].time * 1000);
