@@ -12,6 +12,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.city,
+      coordinates: response.data.coordinates,
       temperature: response.data.temperature.current,
       emoji: response.data.condition.icon_url,
       alternate: response.data.condition.icon,
